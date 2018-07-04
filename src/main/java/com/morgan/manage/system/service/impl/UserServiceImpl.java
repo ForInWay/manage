@@ -1,0 +1,27 @@
+package com.morgan.manage.system.service.impl;
+
+import com.morgan.manage.system.dao.UserMapper;
+import com.morgan.manage.system.model.User;
+import com.morgan.manage.system.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ * 用户管理
+ */
+@Service("userService")
+public class UserServiceImpl implements UserService {
+
+    @Autowired
+    private UserMapper userMapper;
+
+    /**
+     * 根据用户名查找用户
+     * @param userName
+     * @return
+     */
+    @Override
+    public User findUserByName(String userName) {
+        return userMapper.findUserByName(userName);
+    }
+}

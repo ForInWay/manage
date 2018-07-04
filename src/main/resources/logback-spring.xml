@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+
+    <contextName>logback</contextName>
+
+    <!--输出到控制台 ConsoleAppender-->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <!--展示格式 layout-->
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>
+                <pattern>%d{HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36} - %msg%n</pattern>
+            </pattern>
+        </layout>
+    </appender>
+
+    <!--按天生成日志-->
+    <appender name="logFile"  class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Prudent>true</Prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>logs/%d{yyyy-MM-dd}/zy.log</FileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                %d{yyyy-MM-dd HH:mm:ss} -%msg%n
+            </Pattern>
+        </layout>
+    </appender>
+
+    <!--指定最基础的日志输出级别-->
+    <root level="debug">
+        <!--appender将会添加到这个loger-->
+        <appender-ref ref="console"/>
+        <appender-ref ref="logFile"/>
+    </root>
+
+    <!--在某一个包设置运行日志-->
+    <logger name="com.morgan" additivity="false">
+        <appender-ref ref="console"/>
+        <appender-ref ref="logFile" />
+    </logger>
+
+</configuration>
