@@ -1,11 +1,42 @@
 <!DOCTYPE html>
-<html lang="zh_CN">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>后台管理系统</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" th:href="@{/static/frames/layui/css/layui.css}" />
+    <link rel="stylesheet" th:href="@{/static/local/css/login.css}" />
+    <script>
+        if (window.top !== window.self){
+            window.top.location = window.location;
+        }
+    </script>
 </head>
 <body>
-
+    <div class="mask"></div>
+    <div class="login">
+        <h1>后台管理系统</h1>
+        <form class="layui-form layui-form-pane" action="/api/user/login" method="post">
+            <div class="layui-form-item">
+                <label class="layui-form-label">用户名</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="userName" class="layui-input" lay-verify="required" placeholder="请输入用户名">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">密码</label>
+                <div class="layui-input-inline">
+                    <input type="password" name="password" class="layui-input" lay-verify="required" placeholder="请输入密码">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit="" lay-filter="login">登录</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript" th:src="@{/static/frames/jquery/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/static/frames/layui/layui.all.js}"></script>
+    <script type="text/javascript" th:src="@{/static/local/js/login.js}"></script>
 </body>
 </html>

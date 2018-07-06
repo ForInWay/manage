@@ -62,9 +62,10 @@ public class ShiroConfiguration {
          * 过滤链定义,从上向下顺序执行,/**放在最下面
          * authc:所有url必须认证通过才可以访问,anon:所有url都可以匿名访问
          */
-        filterChainDefinitionMap.put("/user/logout","logout");
-        filterChainDefinitionMap.put("/user/error","anon");
         filterChainDefinitionMap.put("/user/login","anon");
+        filterChainDefinitionMap.put("/user/error","anon");
+        filterChainDefinitionMap.put("/static/**","anon");
+        filterChainDefinitionMap.put("/user/logout","logout");
         filterChainDefinitionMap.put("/**","authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;

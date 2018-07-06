@@ -10,15 +10,13 @@ import org.springframework.web.servlet.ModelAndView;
  * @Description: 登录控制器
  * @Date:2018/7/4
  */
-@RestController
 @RequestMapping("/user")
+@RestController
 public class LoginController {
 
     @GetMapping("/login")
     public ModelAndView login(){
-        ModelAndView model = new ModelAndView("/");
+        ModelAndView model = new ModelAndView("login");
         return model;
     }
-
-
 }

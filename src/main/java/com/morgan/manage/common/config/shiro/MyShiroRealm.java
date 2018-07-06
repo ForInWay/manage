@@ -21,6 +21,7 @@ import java.util.Set;
  * @Date:2018/7/4
  */
 public class MyShiroRealm extends AuthorizingRealm{
+
     private static final Logger logger = LoggerFactory.getLogger(MyShiroRealm.class);
 
     @Autowired

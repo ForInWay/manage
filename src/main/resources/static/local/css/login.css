@@ -1,0 +1,28 @@
+body{ margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.mask {
+    width:100%;
+    height:100%;
+    position:absolute;
+    left:0;
+    top:0;
+    background: url("/static/local/images/bg-login.jpg");
+}
+.login {
+    height:330px;
+    width:320px;
+    padding: 20px;
+    background-color:rgba(0,0,0,0.5);
+    border-radius: 4px;
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    margin:-150px 0 0 -160px;
+}
+.login h1{
+    text-align:center;
+    color:#fff;
+    font-size:24px;
+}
