@@ -1,4 +1,5 @@
-body{ margin: 0;
+body{
+    margin: 0;
     padding: 0;
     overflow: hidden;
 }
@@ -8,10 +9,11 @@ body{ margin: 0;
     position:absolute;
     left:0;
     top:0;
-    background: url("/static/local/images/bg-login.jpg");
+    background: url("/static/local/images/bg1-login.jpg");
+    background-size: 100% 100%;
 }
 .login {
-    height:330px;
+    height:250px;
     width:320px;
     padding: 20px;
     background-color:rgba(0,0,0,0.5);
@@ -22,7 +24,14 @@ body{ margin: 0;
     margin:-150px 0 0 -160px;
 }
 .login h1{
-    text-align:center;
-    color:#fff;
-    font-size:24px;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+.layui-form-item {
+    margin-bottom: 30px;
+}
+.layui-btn{
+    font-size: 24px;
 }

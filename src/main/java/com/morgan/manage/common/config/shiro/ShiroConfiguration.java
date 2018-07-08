@@ -53,8 +53,8 @@ public class ShiroConfiguration {
         shiroFilterFactoryBean.setFilters(filterMap);*/
 
         //配置登录的url和登录成功url
-        shiroFilterFactoryBean.setLoginUrl("/user/login");
-        shiroFilterFactoryBean.setSuccessUrl("/user/home");
+        shiroFilterFactoryBean.setLoginUrl("/api/user/login");
+        shiroFilterFactoryBean.setSuccessUrl("/api/user/home");
 
         //定义请求路径与拦截器联系
         Map<String,String> filterChainDefinitionMap = new LinkedHashMap<>();
@@ -62,10 +62,10 @@ public class ShiroConfiguration {
          * 过滤链定义,从上向下顺序执行,/**放在最下面
          * authc:所有url必须认证通过才可以访问,anon:所有url都可以匿名访问
          */
-        filterChainDefinitionMap.put("/user/login","anon");
-        filterChainDefinitionMap.put("/user/error","anon");
+        filterChainDefinitionMap.put("/api/user/login","anon");
+        filterChainDefinitionMap.put("/api/user/error","anon");
         filterChainDefinitionMap.put("/static/**","anon");
-        filterChainDefinitionMap.put("/user/logout","logout");
+        filterChainDefinitionMap.put("/api/user/logout","logout");
         filterChainDefinitionMap.put("/**","authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;

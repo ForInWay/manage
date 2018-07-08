@@ -1,5 +1,7 @@
 package com.morgan.manage.common.config.shiro;
 
+import com.morgan.manage.common.config.ApplicationContextRegister;
+import com.morgan.manage.common.utils.ShiroUtils;
 import com.morgan.manage.system.model.User;
 import com.morgan.manage.system.service.MenuService;
 import com.morgan.manage.system.service.RoleService;
@@ -26,10 +28,6 @@ public class MyShiroRealm extends AuthorizingRealm{
 
     @Autowired
     private UserService userService;
-    @Autowired
-    private RoleService roleService;
-    @Autowired
-    private MenuService menuService;
 
     /**
      * 添加角色相应权限
@@ -39,14 +37,11 @@ public class MyShiroRealm extends AuthorizingRealm{
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principal) {
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
-        String username = (String) principal.getPrimaryPrincipal();
-        User user = userService.findUserByName(username);
-        Set<String> roleNames = roleService.findRoleNamesByUserId(user.getId());
-        logger.info("用户拥有角色："+roleNames);
-        Set<String> menuNames = menuService.findMenuNamesByUserId(user.getId());
-        logger.info("用户权限菜单："+menuNames);
-        authorizationInfo.setRoles(roleNames);
-        authorizationInfo.setStringPermissions(menuNames);
+        Integer userId = ShiroUtils.getUserId();
+        MenuService menuService = ApplicationContextRegister.getBean(MenuService.class);
+        Set<String> permissions = menuService.findPermsByUserId(userId);
+        logger.info("用户权限信息："+permissions);
+        authorizationInfo.setStringPermissions(permissions);
         return authorizationInfo;
     }
 

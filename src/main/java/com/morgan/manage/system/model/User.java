@@ -1,11 +1,15 @@
 package com.morgan.manage.system.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * 用户实体类
  */
-public class User {
+public class User implements Serializable{
+
+    private static final long serialVersionUID = 1L;
+
     //主键id
     private Integer id;
     //用户名
@@ -85,5 +89,19 @@ public class User {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", status=" + status +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
     }
 }

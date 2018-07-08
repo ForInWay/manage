@@ -1,11 +1,15 @@
 package com.morgan.manage.system.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * 菜单表
  */
-public class Menu {
+public class Menu implements Serializable{
+
+    private static final long serialVersionUID = 1L;
+
     //主键id
     private Integer id;
     //父id
@@ -105,5 +109,21 @@ public class Menu {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Menu{" +
+                "id=" + id +
+                ", parentId=" + parentId +
+                ", name='" + name + '\'' +
+                ", url='" + url + '\'' +
+                ", perms='" + perms + '\'' +
+                ", type=" + type +
+                ", icon='" + icon + '\'' +
+                ", orderNum=" + orderNum +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
     }
 }

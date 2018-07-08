@@ -1,9 +1,14 @@
 package com.morgan.manage.system.model;
 
+import java.io.Serializable;
+
 /**
  * 用户角色实体类（多对多）
  */
-public class UserRole {
+public class UserRole implements Serializable{
+
+    private static final long serialVersionUID = 1L;
+
     //主键id
     private Integer id;
     //用户id
@@ -33,5 +38,14 @@ public class UserRole {
 
     public void setRoleId(Integer roleId) {
         this.roleId = roleId;
+    }
+
+    @Override
+    public String toString() {
+        return "UserRole{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", roleId=" + roleId +
+                '}';
     }
 }

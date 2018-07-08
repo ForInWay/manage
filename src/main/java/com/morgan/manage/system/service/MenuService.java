@@ -14,4 +14,6 @@ public interface MenuService {
     Menu findMenuById(Integer id);
 
     List<RoleMenu> findMenusByRoleId(Integer roleId);
+
+    Set<String> findPermsByUserId(Integer userId);
 }

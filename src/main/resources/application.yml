@@ -8,6 +8,8 @@ spring:
     encoding: UTF-8
     cache: false
     check-template-location: true
+  mvc:
+    static-path-pattern: /static/**
 mybatis:
   configuration:
     map-underscore-to-camel-case: true

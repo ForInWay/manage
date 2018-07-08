@@ -72,4 +72,9 @@ public class MenuServiceImpl implements MenuService {
     public List<RoleMenu> findMenusByRoleId(Integer roleId){
         return roleMenuMapper.findMenusByRoleId(roleId);
     }
+
+    @Override
+    public Set<String> findPermsByUserId(Integer userId) {
+        return null;
+    }
 }

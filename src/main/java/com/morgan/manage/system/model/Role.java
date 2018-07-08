@@ -1,11 +1,15 @@
 package com.morgan.manage.system.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * 角色实体类
  */
-public class Role {
+public class Role implements Serializable{
+
+    private static final long serialVersionUID = 1L;
+
     //角色id
     private Integer id;
     //角色名称
@@ -55,5 +59,16 @@ public class Role {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "id=" + id +
+                ", roleName='" + roleName + '\'' +
+                ", roleSign='" + roleSign + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
     }
 }

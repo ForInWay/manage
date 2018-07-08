@@ -1,9 +1,14 @@
 package com.morgan.manage.system.model;
 
+import java.io.Serializable;
+
 /**
  * 角色菜单实体类
  */
-public class RoleMenu {
+public class RoleMenu implements Serializable{
+
+    private static final long serialVersionUID = 1L;
+
     //主键id
     private Integer id;
     //角色id
@@ -33,5 +38,14 @@ public class RoleMenu {
 
     public void setMenuId(Integer menuId) {
         this.menuId = menuId;
+    }
+
+    @Override
+    public String toString() {
+        return "RoleMenu{" +
+                "id=" + id +
+                ", roleId=" + roleId +
+                ", menuId=" + menuId +
+                '}';
     }
 }
