@@ -1,6 +1,6 @@
 package com.morgan.manage.system.dao;
 
-import com.morgan.manage.system.model.UserRole;
+import com.morgan.manage.system.model.SysUserRole;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -12,5 +12,5 @@ import java.util.List;
  */
 @Repository("userRoleMapper")
 public interface UserRoleMapper {
-    List<UserRole> findRolesByUserId(@Param("userId") Integer userId);
+    List<SysUserRole> findRolesByUserId(@Param("userId") Integer userId);
 }

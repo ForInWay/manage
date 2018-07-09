@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.morgan.manage.system.dao.UserRoleMapper" >
 
-  <sql id="userRole_column_list">
-    id,user_id,role_id
+  <sql id="allSelectColumns">
+    id,user_id AS userId,role_id AS roleId
   </sql>
 
-  <select id="findRolesByUserId" parameterType="int" resultMap="userRole">
-    SELECT <include refid="userRole_column_list"/>
+  <select id="findRolesByUserId" resultType="com.morgan.manage.system.model.SysUserRole">
+    SELECT <include refid="allSelectColumns"/>
     FROM sys_user_role
     WHERE user_id = #{userId}
   </select>

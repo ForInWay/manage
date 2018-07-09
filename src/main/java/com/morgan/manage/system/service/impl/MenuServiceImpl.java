@@ -4,9 +4,9 @@ import com.morgan.manage.common.utils.StringUtils;
 import com.morgan.manage.common.utils.TreeUtils;
 import com.morgan.manage.system.dao.MenuMapper;
 import com.morgan.manage.system.dao.RoleMenuMapper;
-import com.morgan.manage.system.model.Menu;
+import com.morgan.manage.system.model.SysMenu;
 import com.morgan.manage.common.base.model.Node;
-import com.morgan.manage.system.model.RoleMenu;
+import com.morgan.manage.system.model.SysRoleMenu;
 import com.morgan.manage.system.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,7 +30,7 @@ public class MenuServiceImpl implements MenuService {
      * @return
      */
     @Override
-    public Menu findMenuById(Integer id) {
+    public SysMenu findMenuById(Integer id) {
         return menuMapper.findMenuById(id);
     }
 
@@ -40,7 +40,7 @@ public class MenuServiceImpl implements MenuService {
      * @return
      */
     @Override
-    public List<RoleMenu> findMenusByRoleId(Integer roleId){
+    public List<SysRoleMenu> findMenusByRoleId(Integer roleId){
         return roleMenuMapper.findMenusByRoleId(roleId);
     }
 
@@ -68,28 +68,28 @@ public class MenuServiceImpl implements MenuService {
      */
     @Override
     public List<Node> findMenusByUserId(Integer userId) {
-        List<Menu> menus = menuMapper.findMenusByUserId(userId);
-        return createTree(menus);
+        List<SysMenu> sysMenus = menuMapper.findMenusByUserId(userId);
+        return createTree(sysMenus);
     }
 
     /**
      * 根据菜单项生成树节点
-     * @param menus
+     * @param sysMenus
      * @return
      */
-    private List<Node> createTree(List<Menu> menus) {
+    private List<Node> createTree(List<SysMenu> sysMenus) {
         List<Node> tree = new ArrayList<>();
         //菜单转换成节点
-        for (Menu menu:menus) {
+        for (SysMenu sysMenu : sysMenus) {
             Node node = new Node();
-            node.setId(String.valueOf(menu.getId()));
-            node.setParentId(String.valueOf(menu.getParentId()));
-            node.setText(menu.getName());
+            node.setId(String.valueOf(sysMenu.getId()));
+            node.setParentId(String.valueOf(sysMenu.getParentId()));
+            node.setText(sysMenu.getName());
             Map<String,Object> attributes = new HashMap<>(16);
-            attributes.put("url",menu.getUrl());
-            attributes.put("icon",menu.getIcon());
-            attributes.put("perms",menu.getPerms());
-            attributes.put("orderNum",menu.getOrderNum());
+            attributes.put("url", sysMenu.getUrl());
+            attributes.put("icon", sysMenu.getIcon());
+            attributes.put("perms", sysMenu.getPerms());
+            attributes.put("orderNum", sysMenu.getOrderNum());
             tree.add(node);
         }
         //根据节点构造成节点菜单

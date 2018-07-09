@@ -3,18 +3,18 @@ package com.morgan.manage.system.model;
 import java.io.Serializable;
 
 /**
- * 角色菜单实体类
+ * 用户角色实体类（多对多）
  */
-public class RoleMenu implements Serializable{
+public class SysUserRole implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
     //主键id
     private Integer id;
+    //用户id
+    private Integer userId;
     //角色id
     private Integer roleId;
-    //菜单id
-    private Integer menuId;
 
     public Integer getId() {
         return id;
@@ -22,6 +22,14 @@ public class RoleMenu implements Serializable{
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public Integer getRoleId() {
@@ -32,20 +40,12 @@ public class RoleMenu implements Serializable{
         this.roleId = roleId;
     }
 
-    public Integer getMenuId() {
-        return menuId;
-    }
-
-    public void setMenuId(Integer menuId) {
-        this.menuId = menuId;
-    }
-
     @Override
     public String toString() {
-        return "RoleMenu{" +
+        return "SysUserRole{" +
                 "id=" + id +
+                ", userId=" + userId +
                 ", roleId=" + roleId +
-                ", menuId=" + menuId +
                 '}';
     }
 }

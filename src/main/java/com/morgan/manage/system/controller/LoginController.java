@@ -4,7 +4,7 @@ import com.morgan.manage.common.base.BaseController;
 import com.morgan.manage.common.utils.AjaxResult;
 import com.morgan.manage.common.utils.NumberUtils;
 import com.morgan.manage.common.base.model.Node;
-import com.morgan.manage.system.model.User;
+import com.morgan.manage.system.model.SysUser;
 import com.morgan.manage.system.service.MenuService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -49,19 +49,20 @@ public class LoginController extends BaseController{
      * @return
      */
     @PostMapping("/login")
-    public AjaxResult login(User user){
-        AjaxResult result = new AjaxResult();
+    public void login(SysUser user){
+//        AjaxResult result = new AjaxResult();
         UsernamePasswordToken token = new UsernamePasswordToken(user.getUserName(),user.getPassword());
         Subject subject = SecurityUtils.getSubject();
         try {
             subject.login(token);
-            result.setSuccess(true);
-            result.setMessage("登录成功");
-            return result;
+//            result.setSuccess(true);
+//            result.setMessage("登录成功");
+//            return result;
         } catch (AuthenticationException e) {
-            result.setSuccess(false);
-            result.setMessage("用户或密码错误");
-            return result;
+//            result.setSuccess(false);
+//            result.setMessage("用户或密码错误");
+//            return result;
+            e.printStackTrace();
         }
     }
 

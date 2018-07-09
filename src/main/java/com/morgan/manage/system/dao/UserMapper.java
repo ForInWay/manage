@@ -1,6 +1,6 @@
 package com.morgan.manage.system.dao;
 
-import com.morgan.manage.system.model.User;
+import com.morgan.manage.system.model.SysUser;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 @Repository("userMapper")
 public interface UserMapper {
 
-    User findUserByName(@Param("userName") String userName);
+    SysUser findUserByName(@Param("userName") String userName);
 }

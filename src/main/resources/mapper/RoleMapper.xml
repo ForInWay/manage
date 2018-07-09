@@ -3,12 +3,13 @@
 <mapper namespace="com.morgan.manage.system.dao.RoleMapper" >
 
 
-  <sql id="role_column_list">
-    id,role_name,role_sign,create_time,update_time
+  <sql id="allSelectColumns">
+    id,role_name AS roleNmae,role_sign AS roleSign,
+    create_time AS createTime,update_time AS updateTime
   </sql>
 
-  <select id="findRoleById" parameterType="int" resultMap="role">
-    SELECT <include refid="role_column_list"/>
+  <select id="findRoleById" resultType="com.morgan.manage.system.model.SysRole">
+    SELECT <include refid="allSelectColumns"/>
     FROM sys_role
     WHERE id = #{id}
   </select>

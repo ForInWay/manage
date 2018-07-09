@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * 菜单表
  */
-public class Menu implements Serializable{
+public class SysMenu implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
@@ -113,7 +113,7 @@ public class Menu implements Serializable{
 
     @Override
     public String toString() {
-        return "Menu{" +
+        return "SysMenu{" +
                 "id=" + id +
                 ", parentId=" + parentId +
                 ", name='" + name + '\'' +

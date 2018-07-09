@@ -1,6 +1,6 @@
 package com.morgan.manage.common.utils;
 
-import com.morgan.manage.system.model.User;
+import com.morgan.manage.system.model.SysUser;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 
@@ -15,9 +15,9 @@ public class ShiroUtils {
         return SecurityUtils.getSubject();
     }
 
-    public static User getUser() {
+    public static SysUser getUser() {
         Object object = getSubjct().getPrincipal();
-        return (User)object;
+        return (SysUser)object;
     }
 
     public static Integer getUserId() {

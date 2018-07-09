@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * 用户实体类
  */
-public class User implements Serializable{
+public class SysUser implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
@@ -93,7 +93,7 @@ public class User implements Serializable{
 
     @Override
     public String toString() {
-        return "User{" +
+        return "SysUser{" +
                 "id=" + id +
                 ", userName='" + userName + '\'' +
                 ", name='" + name + '\'' +

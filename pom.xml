@@ -123,8 +123,8 @@
 					<overwrite>true</overwrite>
 					<jdbcDriver>com.mysql.jdbc.Driver</jdbcDriver>
 					<jdbcURL>jdbc:mysql://116.62.217.250:3306/test</jdbcURL>
-					<jdbcUserId>root</jdbcUserId>
-					<jdbcPassword>chenbin</jdbcPassword>
+					<jdbcUserId>morgan</jdbcUserId>
+					<jdbcPassword>morgan.b.chen</jdbcPassword>
 				</configuration>
 				<dependencies>
 					<dependency>

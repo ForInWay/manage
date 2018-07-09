@@ -1,7 +1,7 @@
 package com.morgan.manage.system.service.impl;
 
 import com.morgan.manage.system.dao.UserMapper;
-import com.morgan.manage.system.model.User;
+import com.morgan.manage.system.model.SysUser;
 import com.morgan.manage.system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     @Override
-    public User findUserByName(String userName) {
+    public SysUser findUserByName(String userName) {
         return userMapper.findUserByName(userName);
     }
 }

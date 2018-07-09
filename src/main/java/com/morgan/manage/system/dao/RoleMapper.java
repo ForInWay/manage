@@ -1,6 +1,6 @@
 package com.morgan.manage.system.dao;
 
-import com.morgan.manage.system.model.Role;
+import com.morgan.manage.system.model.SysRole;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 @Repository("roleMapper")
 public interface RoleMapper {
 
-    Role findRoleById(@Param("id") Integer id);
+    SysRole findRoleById(@Param("id") Integer id);
 }

@@ -1,7 +1,7 @@
 package com.morgan.manage.common.base;
 
 import com.morgan.manage.common.utils.ShiroUtils;
-import com.morgan.manage.system.model.User;
+import com.morgan.manage.system.model.SysUser;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -11,7 +11,8 @@ import org.springframework.stereotype.Controller;
  */
 @Controller
 public class BaseController {
-    public User getUser() {
+
+    public SysUser getUser() {
         return ShiroUtils.getUser();
     }
 

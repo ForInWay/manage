@@ -3,12 +3,12 @@
 <mapper namespace="com.morgan.manage.system.dao.RoleMenuMapper" >
 
 
-  <sql id="roleMenu_column_list">
-    id,role_id,menu_id
+  <sql id="allSelectColumns">
+    id,role_id AS roleId,menu_id AS menuId
   </sql>
 
-  <select id="findMenusByRoleId" parameterType="int" resultMap="roleMenu">
-    SELECT <include refid="roleMenu_column_list"/>
+  <select id="findMenusByRoleId" resultType="com.morgan.manage.system.model.SysRoleMenu">
+    SELECT <include refid="allSelectColumns"/>
     FROM sys_role_menu
     WHERE role_id = #{roleId}
   </select>

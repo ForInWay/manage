@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * 角色实体类
  */
-public class Role implements Serializable{
+public class SysRole implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
@@ -63,7 +63,7 @@ public class Role implements Serializable{
 
     @Override
     public String toString() {
-        return "Role{" +
+        return "SysRole{" +
                 "id=" + id +
                 ", roleName='" + roleName + '\'' +
                 ", roleSign='" + roleSign + '\'' +

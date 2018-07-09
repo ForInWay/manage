@@ -1,12 +1,12 @@
 package com.morgan.manage.system.service;
 
 
-import com.morgan.manage.system.model.User;
+import com.morgan.manage.system.model.SysUser;
 
 /**
  * 用户管理
  */
 public interface UserService {
 
-    User findUserByName(String userName);
+    SysUser findUserByName(String userName);
 }

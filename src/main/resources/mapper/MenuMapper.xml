@@ -2,14 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.morgan.manage.system.dao.MenuMapper" >
 
-    <sql id="table">sys_menu</sql>
-
     <sql id="allSelectColumns">
         DISTINCT m.id,m.parent_id AS parentId,m.name,m.url,m.perms,m.type,m.icon,m.order_num AS orderNum,
         m.create_time AS createTime,m.update_time AS updateTime
     </sql>
 
-    <select id="findMenuById" resultMap="menu">
+    <select id="findMenuById" resultType="com.morgan.manage.system.model.SysMenu">
         SELECT <include refid="allSelectColumns"/>
         FROM sys_menu
         WHERE id = #{id}
@@ -22,7 +20,7 @@
         WHERE ur.user_id = #{userId}
     </select>
 
-    <select id="findMenusByUserId" resultType="menu">
+    <select id="findMenusByUserId" resultType="com.morgan.manage.system.model.SysMenu">
         SELECT <include refid="allSelectColumns"/> FROM
         sys_menu m LEFT JOIN sys_role_menu rm ON m.id = rm.menu_id
         LEFT JOIN sys_user_role ur ON rm.role_id = ur.role_id

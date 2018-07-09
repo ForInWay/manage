@@ -2,8 +2,8 @@ package com.morgan.manage.system.service.impl;
 
 import com.morgan.manage.system.dao.RoleMapper;
 import com.morgan.manage.system.dao.UserRoleMapper;
-import com.morgan.manage.system.model.Role;
-import com.morgan.manage.system.model.UserRole;
+import com.morgan.manage.system.model.SysRole;
+import com.morgan.manage.system.model.SysUserRole;
 import com.morgan.manage.system.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,7 +29,7 @@ public class RoleServiceImpl implements RoleService {
      * @return
      */
     @Override
-    public List<UserRole> findRolesByUserId(Integer userId) {
+    public List<SysUserRole> findRolesByUserId(Integer userId) {
         return userRoleMapper.findRolesByUserId(userId);
     }
 
@@ -39,7 +39,7 @@ public class RoleServiceImpl implements RoleService {
      * @return
      */
     @Override
-    public Role findRoleById(Integer id){
+    public SysRole findRoleById(Integer id){
         return roleMapper.findRoleById(id);
     }
 
@@ -50,9 +50,9 @@ public class RoleServiceImpl implements RoleService {
      */
     @Override
     public Set<String> findRoleNamesByUserId(Integer userId) {
-        List<UserRole> userRoles = findRolesByUserId(userId);
+        List<SysUserRole> userRoles = findRolesByUserId(userId);
         Set<String> userNames = new HashSet<>();
-        Role role = null;
+        SysRole role = null;
         if (userRoles!=null){
             int length = userRoles.size();
             for (int i=0;i<length;i++){

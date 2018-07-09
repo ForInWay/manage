@@ -2,9 +2,8 @@ package com.morgan.manage.common.config.shiro;
 
 import com.morgan.manage.common.config.ApplicationContextRegister;
 import com.morgan.manage.common.utils.ShiroUtils;
-import com.morgan.manage.system.model.User;
+import com.morgan.manage.system.model.SysUser;
 import com.morgan.manage.system.service.MenuService;
-import com.morgan.manage.system.service.RoleService;
 import com.morgan.manage.system.service.UserService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -56,7 +55,7 @@ public class MyShiroRealm extends AuthorizingRealm{
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         String userName = token.getUsername();
         String password = new String(token.getPassword());
-        User user = userService.findUserByName(userName);
+        SysUser user = userService.findUserByName(userName);
 
         //账号不存在
         if(user==null){
