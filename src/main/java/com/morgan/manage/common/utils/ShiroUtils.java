@@ -6,7 +6,7 @@ import org.apache.shiro.subject.Subject;
 
 /**
  * @Author:morgan.b.chen
- * @Description: shiro工具類
+ * @Description: shiro工具类
  * @Date:2018/7/8
  */
 public class ShiroUtils {

@@ -9,8 +9,6 @@ body{
     position:absolute;
     left:0;
     top:0;
-    background: url("/static/local/images/bg1-login.jpg");
-    background-size: 100% 100%;
 }
 .login {
     height:250px;

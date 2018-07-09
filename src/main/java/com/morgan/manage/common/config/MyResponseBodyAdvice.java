@@ -21,8 +21,8 @@ import java.io.File;
  * @Description: 返回结果统一处理类
  * @Date:2018/7/8
  */
-@ControllerAdvice
-public class MyResponseBodyAdvice implements ResponseBodyAdvice<Object>{
+//@ControllerAdvice
+/*public class MyResponseBodyAdvice implements ResponseBodyAdvice<Object>{
 
     private static Logger log = LoggerFactory.getLogger(MyResponseBodyAdvice.class);
 
@@ -53,4 +53,4 @@ public class MyResponseBodyAdvice implements ResponseBodyAdvice<Object>{
             return body;
         }
     }
-}
+}*/

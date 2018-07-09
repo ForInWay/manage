@@ -12,7 +12,7 @@
     </script>
 </head>
 <body>
-    <div class="mask"></div>
+    <div class="mask" th:style="${'background : url( ' + bgImage + ' );background-size: 100% 100%;'}"></div>
     <div class="login">
         <h1>后台管理系统</h1>
         <form class="layui-form layui-form-pane" action="/api/user/login" method="post">

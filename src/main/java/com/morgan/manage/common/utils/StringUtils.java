@@ -7,4 +7,12 @@ package com.morgan.manage.common.utils;
  */
 public class StringUtils {
 
+    /**
+     * 判断字符串是否为空
+     * @param str
+     * @return
+     */
+    public static boolean isEmpty(String str){
+        return !(str!=null && str.trim().length()!=0);
+    }
 }
