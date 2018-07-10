@@ -90,6 +90,7 @@ public class MenuServiceImpl implements MenuService {
             attributes.put("icon", sysMenu.getIcon());
             attributes.put("perms", sysMenu.getPerms());
             attributes.put("orderNum", sysMenu.getOrderNum());
+            node.setAttributes(attributes);
             tree.add(node);
         }
         //根据节点构造成节点菜单

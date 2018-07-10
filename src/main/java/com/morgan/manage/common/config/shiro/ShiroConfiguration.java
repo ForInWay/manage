@@ -1,9 +1,12 @@
 package com.morgan.manage.common.config.shiro;
 
 import org.apache.shiro.mgt.SecurityManager;
+import org.apache.shiro.session.mgt.eis.MemorySessionDAO;
+import org.apache.shiro.session.mgt.eis.SessionDAO;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -35,6 +38,7 @@ public class ShiroConfiguration {
     public SecurityManager securityManager(){
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         securityManager.setRealm(myShiroRealm());
+        securityManager.setSessionManager(sessionManager());
         return securityManager;
     }
 
@@ -52,10 +56,6 @@ public class ShiroConfiguration {
         filterMap.put("authc",new AjaxPermissionsAuthorizationFilter());
         shiroFilterFactoryBean.setFilters(filterMap);*/
 
-        //配置登录的url和登录成功url
-        shiroFilterFactoryBean.setLoginUrl("/api/user/login");
-        shiroFilterFactoryBean.setSuccessUrl("/api/user/home");
-
         //定义请求路径与拦截器联系
         Map<String,String> filterChainDefinitionMap = new LinkedHashMap<>();
         /**
@@ -68,11 +68,14 @@ public class ShiroConfiguration {
         filterChainDefinitionMap.put("/api/user/logout","logout");
         filterChainDefinitionMap.put("/**","authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
+
+        //配置登录的url和登录成功url
+        shiroFilterFactoryBean.setLoginUrl("/api/user/login");
         return shiroFilterFactoryBean;
     }
 
     /**
-     * 使shiro注解生效
+     * 开启aop注解支持
      * @param securityManager
      * @return
      */
@@ -81,5 +84,21 @@ public class ShiroConfiguration {
         AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
         authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
         return authorizationAttributeSourceAdvisor;
+    }
+
+    /**
+     * shiro session的管理
+     */
+    @Bean
+    public DefaultWebSessionManager sessionManager() {
+        DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
+        sessionManager.setSessionDAO(getSessionDAO());
+        sessionManager.setGlobalSessionTimeout(30 * 60 * 1000);
+        return sessionManager;
+    }
+
+    @Bean
+    public SessionDAO getSessionDAO() {
+        return new MemorySessionDAO();
     }
 }

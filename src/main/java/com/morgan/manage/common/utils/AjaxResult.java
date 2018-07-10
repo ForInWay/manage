@@ -64,6 +64,26 @@ public class AjaxResult {
         this.data = data;
     }
 
+    public static AjaxResult ok() {
+        return new AjaxResult(true, "操作成功", null);
+    }
+
+    public static AjaxResult ok(String msg) {
+        return new AjaxResult(true, msg, null);
+    }
+
+    public static AjaxResult ok(String msg, Object data) {
+        return new AjaxResult(true, msg, data);
+    }
+
+    public static AjaxResult error() {
+        return new AjaxResult(false, "操作失败", null);
+    }
+
+    public static AjaxResult error(String msg) {
+        return new AjaxResult(false, msg, null);
+    }
+
     @Override
     public String toString() {
         return "AjaxResult{" +

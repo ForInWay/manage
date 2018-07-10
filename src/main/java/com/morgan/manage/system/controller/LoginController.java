@@ -11,10 +11,11 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -25,7 +26,7 @@ import java.util.List;
  * @Date:2018/7/4
  */
 @RequestMapping("/api/user")
-@RestController
+@Controller
 public class LoginController extends BaseController{
 
     @Autowired
@@ -49,21 +50,15 @@ public class LoginController extends BaseController{
      * @return
      */
     @PostMapping("/login")
-    public void login(SysUser user){
-//        AjaxResult result = new AjaxResult();
+    public String login(SysUser user){
         UsernamePasswordToken token = new UsernamePasswordToken(user.getUserName(),user.getPassword());
         Subject subject = SecurityUtils.getSubject();
         try {
             subject.login(token);
-//            result.setSuccess(true);
-//            result.setMessage("登录成功");
-//            return result;
         } catch (AuthenticationException e) {
-//            result.setSuccess(false);
-//            result.setMessage("用户或密码错误");
-//            return result;
             e.printStackTrace();
         }
+        return "redirect:home";
     }
 
     /**
