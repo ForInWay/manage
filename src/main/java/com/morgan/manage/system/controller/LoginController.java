@@ -1,7 +1,6 @@
 package com.morgan.manage.system.controller;
 
 import com.morgan.manage.common.base.BaseController;
-import com.morgan.manage.common.utils.AjaxResult;
 import com.morgan.manage.common.utils.NumberUtils;
 import com.morgan.manage.common.base.model.Node;
 import com.morgan.manage.system.model.SysUser;
@@ -15,7 +14,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -70,6 +68,7 @@ public class LoginController extends BaseController{
         ModelAndView model = new ModelAndView("home");
         List<Node> menus = menuService.findMenusByUserId(getUserId());
         model.addObject("menus",menus);
+        model.addObject("userName",getUserName());
         return model;
     }
 }

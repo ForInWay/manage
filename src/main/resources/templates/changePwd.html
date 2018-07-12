@@ -1,0 +1,37 @@
+<!--修改密码-->
+<div style="margin: 20px 20px;" xmlns:th="http://www.thymeleaf.org">
+    <form class="layui-form layui-form-pane" th:action="@{/api/user/changePwd}" method="post" autocomplete="off">
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户名</label>
+            <div class="layui-input-block" style="width:300px">
+                <input id="userName" type="text" name="userName" th:value="${user.userName}" class="layui-input layui-disabled" readonly>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">旧密码</label>
+            <div class="layui-input-block" style="width:300px">
+                <input type="password" name="oldPwd" placeholder="请输入旧密码" class="layui-input" lay-verify="required|length|password">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">新密码</label>
+            <div class="layui-input-block" style="width:300px">
+                <input id="password" name="password" type="password" placeholder="请输入新密码" class="layui-input" lay-verify="required|length|password">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">确认密码</label>
+            <div class="layui-input-block" style="width:300px">
+                <input type="password" placeholder="请确认密码" class="layui-input" lay-verify="required|length|password|eqPwd">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit="" lay-filter="submit">立即修改</button>
+            </div>
+        </div>
+    </form>
+    <script type="text/javascript">
+        layui.use("xform");
+    </script>
+</div>

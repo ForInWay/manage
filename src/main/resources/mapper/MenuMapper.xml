@@ -7,12 +7,6 @@
         m.create_time AS createTime,m.update_time AS updateTime
     </sql>
 
-    <select id="findMenuById" resultType="com.morgan.manage.system.model.SysMenu">
-        SELECT <include refid="allSelectColumns"/>
-        FROM sys_menu
-        WHERE id = #{id}
-    </select>
-
     <select id="findPermsByUserId" resultType="string">
         SELECT DISTINCT perms
         FROM sys_menu m LEFT JOIN sys_role_menu rm ON m.id = rm.menu_id
@@ -20,7 +14,7 @@
         WHERE ur.user_id = #{userId}
     </select>
 
-    <select id="findMenusByUserId" resultType="com.morgan.manage.system.model.SysMenu">
+    <select id="findMenusByUserId" resultType="sysMenu">
         SELECT <include refid="allSelectColumns"/> FROM
         sys_menu m LEFT JOIN sys_role_menu rm ON m.id = rm.menu_id
         LEFT JOIN sys_user_role ur ON rm.role_id = ur.role_id

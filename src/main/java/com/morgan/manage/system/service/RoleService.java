@@ -1,17 +1,10 @@
 package com.morgan.manage.system.service;
 
 
+import com.morgan.manage.common.base.BaseService;
 import com.morgan.manage.system.model.SysRole;
-import com.morgan.manage.system.model.SysUserRole;
 
-import java.util.List;
-import java.util.Set;
 
-public interface RoleService {
+public interface RoleService extends BaseService<SysRole>{
 
-    List<SysUserRole> findRolesByUserId(Integer userId);
-
-    Set<String> findRoleNamesByUserId(Integer id);
-
-    SysRole findRoleById(Integer id);
 }

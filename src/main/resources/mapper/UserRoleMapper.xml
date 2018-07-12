@@ -6,9 +6,4 @@
     id,user_id AS userId,role_id AS roleId
   </sql>
 
-  <select id="findRolesByUserId" resultType="com.morgan.manage.system.model.SysUserRole">
-    SELECT <include refid="allSelectColumns"/>
-    FROM sys_user_role
-    WHERE user_id = #{userId}
-  </select>
 </mapper>

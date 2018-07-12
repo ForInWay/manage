@@ -7,10 +7,4 @@
     id,role_name AS roleNmae,role_sign AS roleSign,
     create_time AS createTime,update_time AS updateTime
   </sql>
-
-  <select id="findRoleById" resultType="com.morgan.manage.system.model.SysRole">
-    SELECT <include refid="allSelectColumns"/>
-    FROM sys_role
-    WHERE id = #{id}
-  </select>
 </mapper>

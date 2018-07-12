@@ -16,4 +16,4 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true
   mapper-locations: mapper/*.xml
-  type-aliases-package: com.morgan.**.model
+  type-aliases-package: com.morgan.manage.system.model,com.morgan.manage.common.base.domainn

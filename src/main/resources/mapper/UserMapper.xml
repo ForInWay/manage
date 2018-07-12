@@ -7,7 +7,7 @@
     create_time AS createTime,update_time AS updateTime
   </sql>
 
-  <select id="findUserByName" resultType="com.morgan.manage.system.model.SysUser">
+  <select id="findUserByName" resultType="sysUser">
     SELECT <include refid="allSelectColumns"/>
     FROM sys_user
     WHERE username = #{userName}
