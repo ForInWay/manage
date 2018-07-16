@@ -2,12 +2,12 @@ package com.morgan.manage.system.dao;
 
 import com.morgan.manage.common.base.BaseMapper;
 import com.morgan.manage.system.model.SysUserRole;
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * 用户角色管理
  */
-@Repository("userRoleMapper")
+@Mapper
 public interface UserRoleMapper extends BaseMapper<SysUserRole>{
 
 }

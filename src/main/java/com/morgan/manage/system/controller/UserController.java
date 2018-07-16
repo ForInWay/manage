@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -43,15 +44,16 @@ public class UserController extends BaseController{
      * @return
      */
     @PostMapping("/changePwd")
+    @ResponseBody
     public AjaxResult changePwd(String password,String oldPwd){
         SysUser user = userService.find(getUserId());
-        if (!user.getPassword().equals(oldPwd)){
+        if (!user.getPassword().equals(DecriptUtils.MD5(oldPwd))){
             return AjaxResult.error("密码错误");
         }
         SysUser curUser = getUser();
         curUser.setPassword(DecriptUtils.MD5(password));
         if (userService.update(curUser)>0){
-            return AjaxResult.ok();
+            return AjaxResult.ok("修改成功");
         }else{
             return AjaxResult.error("修改密码失败");
         }

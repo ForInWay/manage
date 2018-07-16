@@ -1,18 +1,21 @@
 package com.morgan.manage.system.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * 用户实体类
  */
+@Table(name="sys_user")
 public class SysUser implements Serializable{
 
-    private static final long serialVersionUID = 1L;
-
     //主键id
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     //用户名
+    @Column(name = "username")
     private String userName;
     //姓名
     private String name;
@@ -23,8 +26,10 @@ public class SysUser implements Serializable{
     //用户状态
     private Integer status;
     //创建时间
+    @Column(name = "create_time")
     private Date createTime;
     //更新时间
+    @Column(name = "update_time")
     private Date updateTime;
 
     public Integer getId() {

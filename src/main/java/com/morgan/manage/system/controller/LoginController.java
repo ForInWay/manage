@@ -1,6 +1,7 @@
 package com.morgan.manage.system.controller;
 
 import com.morgan.manage.common.base.BaseController;
+import com.morgan.manage.common.utils.DecriptUtils;
 import com.morgan.manage.common.utils.NumberUtils;
 import com.morgan.manage.common.base.model.Node;
 import com.morgan.manage.system.model.SysUser;
@@ -49,7 +50,7 @@ public class LoginController extends BaseController{
      */
     @PostMapping("/login")
     public String login(SysUser user){
-        UsernamePasswordToken token = new UsernamePasswordToken(user.getUserName(),user.getPassword());
+        UsernamePasswordToken token = new UsernamePasswordToken(user.getUserName(), DecriptUtils.MD5(user.getPassword()));
         Subject subject = SecurityUtils.getSubject();
         try {
             subject.login(token);

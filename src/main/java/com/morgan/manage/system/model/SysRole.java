@@ -1,24 +1,30 @@
 package com.morgan.manage.system.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * 角色实体类
  */
+@Table(name = "sys_role")
 public class SysRole implements Serializable{
 
-    private static final long serialVersionUID = 1L;
-
     //角色id
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     //角色名称
+    @Column(name = "role_name")
     private String roleName;
     //角色标识
+    @Column(name = "role_sign")
     private String roleSign;
     //创建时间
+    @Column(name = "create_time")
     private Date createTime;
     //更新时间
+    @Column(name = "update_time")
     private Date updateTime;
 
     public Integer getId() {

@@ -1,18 +1,21 @@
 package com.morgan.manage.system.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * 菜单表
  */
+@Table(name = "sys_menu")
 public class SysMenu implements Serializable{
 
-    private static final long serialVersionUID = 1L;
-
     //主键id
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     //父id
+    @Column(name = "parent_id")
     private Integer parentId;
     //菜单名称
     private String name;
@@ -25,10 +28,13 @@ public class SysMenu implements Serializable{
     //菜单图标
     private String icon;
     //排序字段
+    @Column(name = "order_num")
     private Integer orderNum;
     //创建时间
+    @Column(name = "create_time")
     private Date createTime;
     //更新时间
+    @Column(name = "update_time")
     private Date updateTime;
 
     public Integer getId() {
