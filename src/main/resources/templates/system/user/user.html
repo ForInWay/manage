@@ -1,0 +1,40 @@
+<!--用户列表页面-->
+<div style="margin: 20px 20px;">
+
+    <xblock>
+        <blockquote class="layui-elem-quote manage-quote">
+            <button class="layui-btn dialog" data-url="/api/user/add" data-title="添加">
+                <i class="layui-icon">&#xe608;</i>添加
+            </button>
+            <button class="layui-btn dialog" data-url="/api/user/remove" data-title="删除">
+                <i class="layui-icon">&#xe640;</i>删除
+            </button>
+        </blockquote>
+    </xblock>
+
+    <table class="layui-table"
+           lay-data="{height:'full-85', url:'/api/user/list', page:true, id:'table', limit:15, limits:[10,15,20,50,100]}"
+           lay-filter="table">
+        <thead>
+        <tr>
+            <th lay-data="{field:'id',align:'center'}">用户id</th>
+            <th lay-data="{field:'userName',align:'center'}">用户名</th>
+            <th lay-data="{field:'name',align:'center',verify:'checkStr'}">姓名</th>
+            <th lay-data="{field:'email',align:'center'}">邮箱</th>
+            <th lay-data="{field:'status',align:'center',templet:'#statusTpl'}">状态</th>
+        </tr>
+        </thead>
+    </table>
+
+    <script type="text/html" id="statusTpl">
+        {{#  if(d.status == 1){ }}
+        <span style="color:green">正常</span>
+        {{#  } else { }}
+        <span style="color:red">禁用</span>
+        {{#  } }}
+    </script>
+
+    <script type="text/javascript">
+        layui.use("xtable");
+    </script>
+</div>

@@ -10,7 +10,7 @@ public interface BaseService<T> {
 
     List<T> list(T t);
 
-    int add(T t);
+    int save(T t);
 
     int batchSave(List<T> list);
 

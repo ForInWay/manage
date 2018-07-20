@@ -16,6 +16,8 @@ public class AjaxResult {
     //返回数据
     private Object data;
 
+    private long count;
+
     public AjaxResult(){}
 
     public AjaxResult(Boolean success) {
@@ -30,6 +32,20 @@ public class AjaxResult {
         this.success = success;
         this.message = message;
         this.data = data;
+    }
+
+    public AjaxResult(Boolean success, Object data, long count) {
+        this.success = success;
+        this.data = data;
+        this.count = count;
+    }
+
+    public long getCount() {
+        return count;
+    }
+
+    public void setCount(long count) {
+        this.count = count;
     }
 
     public Boolean getSuccess() {
@@ -76,6 +92,10 @@ public class AjaxResult {
         return new AjaxResult(true, msg, data);
     }
 
+    public static AjaxResult ok(long count, Object data) {
+        return new AjaxResult(true, data, count);
+    }
+
     public static AjaxResult error() {
         return new AjaxResult(false, "操作失败", null);
     }
@@ -91,6 +111,7 @@ public class AjaxResult {
                 ", message='" + message + '\'' +
                 ", code=" + code +
                 ", data=" + data +
+                ", count=" + count +
                 '}';
     }
 }

@@ -30,7 +30,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T>{
     }
 
     @Override
-    public int add(T t) {
+    public int save(T t) {
         return baseMapper.insert(t);
     }
 

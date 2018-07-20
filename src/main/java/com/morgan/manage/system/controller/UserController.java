@@ -1,6 +1,8 @@
 package com.morgan.manage.system.controller;
 
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.morgan.manage.common.base.BaseController;
 import com.morgan.manage.common.utils.AjaxResult;
 import com.morgan.manage.common.utils.DecriptUtils;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 /**
  * @Author：Morgan.B.Chen
@@ -57,5 +61,27 @@ public class UserController extends BaseController{
         }else{
             return AjaxResult.error("修改密码失败");
         }
+    }
+
+    /**
+     * 跳转至用户列表界面
+     * @return
+     */
+    @GetMapping("/page")
+    public String findUserPage(){
+        return "system/user/user";
+    }
+
+    /**
+     * 分页获取用户列表
+     * @return
+     */
+    @GetMapping("/list")
+    @ResponseBody
+    public AjaxResult findUserList(int page,int limit){
+        PageHelper.startPage(page,limit);
+        List<SysUser> users = userService.list();
+        PageInfo<SysUser> pageInfo = new PageInfo<>(users);
+        return AjaxResult.ok(pageInfo.getTotal(),users);
     }
 }
