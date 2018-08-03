@@ -5,5 +5,5 @@ layui.define(['layer', 'table', 'element', 'form', 'laydate'], function (exports
         table = layui.table;
 
 
-    exports('xtable', {});
+    exports('xtable',{});
 });

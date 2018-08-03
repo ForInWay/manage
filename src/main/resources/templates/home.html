@@ -64,16 +64,18 @@
             </div>
         </div>
     </div>
+</div>
     <script type="text/javascript" th:src="@{/static/frames/jquery/jquery.min.js}"></script>
     <script type="text/javascript" th:src="@{/static/frames/layui/layui.all.js}"></script>
+    <script type="text/javascript" th:src="@{/static/plugins/layui-xtree.js}"></script>
+    <script type="text/javascript" th:src="@{/static/plugins/x-layui.js}"></script>
     <script type="text/javascript" th:src="@{/static/local/js/home.js}"></script>
     <script>
         layui.config({
-            version:true,
-            debug:true,
+            version: true,
+            debug: true,
             base: '/static/local/common/js/' //你存放新模块的目录，注意，不是layui的模块目录
         }).use('index'); //加载入口
     </script>
-</div>
 </body>
 </html>

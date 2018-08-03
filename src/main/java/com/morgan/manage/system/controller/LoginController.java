@@ -36,7 +36,6 @@ public class LoginController extends BaseController{
      * @return
      */
     @GetMapping("/login")
-
     public ModelAndView login(){
         ModelAndView model = new ModelAndView("login");
         String bgImage = "/static/local/images/bg" + NumberUtils.getRandom(5) + "-login.jpg";
